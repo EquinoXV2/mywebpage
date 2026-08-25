@@ -1,36 +1,38 @@
 /* Classic 2000s stylesheet */
 
 body {
-    background-color: #808080;
-    background-image: url('data:image/pixel;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
+    background-color: #000000;
+    background-image: url('https://web.archive.org/web/20090829035200/http://geocities.com/Area51/Corridor/1000/stars.gif');
+    background-repeat: repeat;
+    background-position: top left;
     font-family: Arial, sans-serif;
     margin: 20px;
     padding: 0;
 }
 
 a {
-    color: #0000EE;
+    color: #00FFFF;
     text-decoration: underline;
 }
 
 a:hover {
-    color: #FF0000;
+    color: #FF00FF;
 }
 
 a:visited {
-    color: #551A8B;
+    color: #FF9900;
 }
 
 h2 {
     font-family: "Times New Roman", serif;
-    color: #000080;
-    border-bottom: 2px solid #000080;
+    color: #FFFFFF;
+    border-bottom: 2px solid #00FF00;
     padding-bottom: 5px;
 }
 
 hr {
-    color: #000080;
-    background-color: #000080;
+    color: #00FF00;
+    background-color: #00FF00;
     height: 1px;
     border: none;
 }
@@ -51,4 +53,12 @@ td {
 /* Blinking text (if browser supports it) */
 blink {
     color: #FF0000;
+}
+
+/* Counter styling */
+img[alt="Visitor Counter"],
+img[alt="Counter"] {
+    border: 2px solid #00FF00;
+    padding: 2px;
+    background-color: #000000;
 }
