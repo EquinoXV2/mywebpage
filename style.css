@@ -1,0 +1,54 @@
+/* Classic 2000s stylesheet */
+
+body {
+    background-color: #808080;
+    background-image: url('data:image/pixel;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==');
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+a {
+    color: #0000EE;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #FF0000;
+}
+
+a:visited {
+    color: #551A8B;
+}
+
+h2 {
+    font-family: "Times New Roman", serif;
+    color: #000080;
+    border-bottom: 2px solid #000080;
+    padding-bottom: 5px;
+}
+
+hr {
+    color: #000080;
+    background-color: #000080;
+    height: 1px;
+    border: none;
+}
+
+marquee {
+    font-family: "Comic Sans MS", cursive;
+}
+
+/* Classic table styling */
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 5px;
+}
+
+/* Blinking text (if browser supports it) */
+blink {
+    color: #FF0000;
+}
