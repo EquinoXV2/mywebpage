@@ -4,8 +4,22 @@
     <title>Welcome to My Homepage</title>
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <meta name="description" content="Welcome to my personal homepage on the World Wide Web">
-    <meta name="keywords" content="homepage, personal, web, internet, guestbook, links">
+    <meta name="keywords" content="homepage, personal, web, internet, links">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script>
+        function updateCounter() {
+            fetch('/api/counter')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('visitor-count').innerHTML = data.count.toString().padStart(6, '0');
+                })
+                .catch(() => {
+                    document.getElementById('visitor-count').innerHTML = '000000';
+                });
+        }
+        
+        window.onload = updateCounter;
+    </script>
 </head>
 <body>
     <center>
@@ -41,8 +55,7 @@
                                         [ <a href="index.html">Home</a> ] 
                                         [ <a href="#about">About Me</a> ] 
                                         [ <a href="#links">My Links</a> ] 
-                                        [ <a href="mailto:you@example.com">Email Me</a> ] 
-                                        [ <a href="guestbook.html">Sign Guestbook</a> ]
+                                        [ <a href="mailto:you@example.com">Email Me</a> ]
                                     </b>
                                 </font>
                             </td>
@@ -63,7 +76,6 @@
                                     <a href="#music">Music</a><br>
                                     <a href="#games">Games</a><br>
                                     <a href="mailto:you@example.com">Contact</a><br>
-                                    <a href="guestbook.html">Guestbook</a><br>
                                 </font>
                                 <br>
                                 <font face="Arial" size="2">
@@ -129,9 +141,6 @@
                                     <p>
                                         Coming soon! Im working on this section.
                                     </p>
-                                    
-                                    <ul>
-                                    </ul>
                                 </font>
                             </td>
                             
@@ -143,8 +152,7 @@
                                 <hr width="100%">
                                 <font face="Arial" size="2">
                                     <b>Visitors:</b><br>
-                                    <!-- Fake Counter -->
-                                    <img src="https://web.archive.org/web/20090829035200/http://geocities.com/cgi-bin/counter/000123" border="0" alt="Counter"><br>
+                                    <span id="visitor-count" style="font-family: 'Courier New', monospace; font-size: 24px; font-weight: bold; color: #000080; background-color: #000000; padding: 2px 5px; letter-spacing: 3px;">000000</span><br>
                                     <b>Since:</b><br>
                                     August 2026
                                 </font>
@@ -154,9 +162,9 @@
                                 </font>
                                 <hr width="100%">
                                 <font face="Arial" size="1">
-                                    <b>12/15/03:</b> Added new links<br>
-                                    <b>11/30/03:</b> Site launched!<br>
-                                    <b>11/01/03:</b> Started building site
+                                    <b>08/24/26:</b> Added counter and updated links<br>
+                                    <b>08/24/26:</b> Site launched!<br>
+                                    <b>08/23/26:</b> Started building site
                                 </font>
                                 <br><br>
                                 <font face="Arial" size="2">
@@ -167,18 +175,6 @@
                                     <img src="https://web.archive.org/web/20090829035200/http://geocities.com/Heartland/Plains/1794/award.gif" border="0" alt="Best Site Award"><br>
                                     <img src="https://web.archive.org/web/20090829035200/http://geocities.com/Heartland/Plains/1794/cool.gif" border="0" alt="Cool Site Award"><br>
                                 </font>
-                                <br><br>
-                                <font face="Arial" size="2">
-                                    <b>Sign My Guestbook</b>
-                                </font>
-                                <hr width="100%">
-                                <font face="Arial" size="1">
-                                    <a href="guestbook.html">
-                                        <img src="https://web.archive.org/web/20090829035200/http://geocities.com/Heartland/Plains/1794/sign.gif" border="0" alt="Sign Guestbook">
-                                    </a>
-                                    <br>
-                                    <a href="guestbook.html">View Guestbook</a>
-                                </font>
                             </td>
                         </tr>
                         
@@ -187,7 +183,7 @@
                             <td bgcolor="#000080" align="center" colspan="3">
                                 <font face="Arial" size="1" color="#FFFFFF">
                                     This page is best viewed at 800x600 resolution using Netscape Navigator or Internet Explorer<br>
-                                    Last updated: August 24, 2026<br>
+                                    <span id="current-date"></span><br>
                                     &copy; 2026 My Website. All rights reserved.
                                 </font>
                             </td>
@@ -205,14 +201,17 @@
             <a href="http://jigsaw.w3.org/css-validator/check/referer">
                 <img src="https://web.archive.org/web/20090829035200/http://jigsaw.w3.org/css-validator/images/vcss" border="0" alt="Valid CSS" height="31" width="88">
             </a>
-            <br>
-            <font face="Arial" size="1">
-                <a href="http://www.bravenet.com/">Get your free guestbook</a>
-            </font>
         </p>
         
         <!-- MIDI Player (optional nostalgic element) -->
         <embed src="https://web.archive.org/web/20090829035200/http://geocities.com/Heartland/Plains/1794/music.mid" autostart="true" loop="true" hidden="true">
     </center>
+    
+    <script>
+        // Set current date
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerHTML = 'Last updated: ' + now.toLocaleDateString('en-US', options);
+    </script>
 </body>
 </html>
