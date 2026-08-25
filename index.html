@@ -6,20 +6,6 @@
     <meta name="description" content="Welcome to my personal homepage on the World Wide Web">
     <meta name="keywords" content="homepage, personal, web, internet, links">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script>
-        function updateCounter() {
-            fetch('/api/counter')
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('visitor-count').innerHTML = data.count.toString().padStart(6, '0');
-                })
-                .catch(() => {
-                    document.getElementById('visitor-count').innerHTML = '000000';
-                });
-        }
-        
-        window.onload = updateCounter;
-    </script>
 </head>
 <body>
     <center>
