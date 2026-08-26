@@ -1,310 +1,316 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<title>Welcome to My Tuff Page</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<meta name="description" content="Welcome to my personal homepage on the World Wide Web">
-	<meta name="keywords" content="homepage, personal, web, internet, links">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<script src="audit-tracker.js"></script>
-<script>
-    (function() {
-        // Create cursor elements
-        const dot = document.createElement('div');
-        const ring = document.createElement('div');
-        
-        // Dot styling - small, fast, precise
-        dot.style.width = '8px';
-        dot.style.height = '8px';
-        dot.style.background = '#FFFFFF';
-        dot.style.borderRadius = '50%';
-        dot.style.position = 'fixed';
-        dot.style.top = '0';
-        dot.style.left = '0';
-        dot.style.pointerEvents = 'none';
-        dot.style.zIndex = '99999';
-        dot.style.boxShadow = '0 0 10px #FFFFFF, 0 0 20px #FF0000';
-        dot.style.transition = 'width 0.2s, height 0.2s';
-        
-        // Ring styling - larger, smooth follow
-        ring.style.width = '40px';
-        ring.style.height = '40px';
-        ring.style.border = '2px solid #FF0000';
-        ring.style.borderRadius = '50%';
-        ring.style.position = 'fixed';
-        ring.style.top = '0';
-        ring.style.left = '0';
-        ring.style.pointerEvents = 'none';
-        ring.style.zIndex = '99998';
-        ring.style.boxShadow = '0 0 15px #FF0000, 0 0 30px rgba(255, 0, 0, 0.3)';
-        ring.style.transition = 'width 0.3s, height 0.3s, border-color 0.3s';
-        
-        document.body.appendChild(dot);
-        document.body.appendChild(ring);
-        
-        // Hide default cursor
-        document.body.style.cursor = 'none';
-        document.querySelectorAll('a, button, img, marquee, input, select, textarea').forEach(el => {
-            el.style.cursor = 'none';
-        });
-        
-        let mouseX = 0;
-        let mouseY = 0;
-        let ringX = 0;
-        let ringY = 0;
-        let dotX = 0;
-        let dotY = 0;
-        
-        // Track mouse
-        document.addEventListener('mousemove', function(e) {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Dot follows instantly
-            dot.style.transform = 'translate(' + (mouseX - 4) + 'px, ' + (mouseY - 4) + 'px)';
-        });
-        
-        // Smooth ring follow
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.15;
-            ringY += (mouseY - ringY) * 0.15;
-            
-            ring.style.transform = 'translate(' + (ringX - 20) + 'px, ' + (ringY - 20) + 'px)';
-            
-            requestAnimationFrame(animateRing);
-        }
-        
-        animateRing();
-        
-        // Hover effect on interactive elements
-        document.querySelectorAll('a, button, img, marquee').forEach(el => {
-            el.addEventListener('mouseenter', function() {
-                dot.style.width = '12px';
-                dot.style.height = '12px';
-                ring.style.width = '60px';
-                ring.style.height = '60px';
-                ring.style.borderColor = '#FFFFFF';
-                ring.style.boxShadow = '0 0 20px #FFFFFF, 0 0 40px rgba(255, 255, 255, 0.3)';
-            });
-            
-            el.addEventListener('mouseleave', function() {
-                dot.style.width = '8px';
-                dot.style.height = '8px';
-                ring.style.width = '40px';
-                ring.style.height = '40px';
-                ring.style.borderColor = '#FF0000';
-                ring.style.boxShadow = '0 0 15px #FF0000, 0 0 30px rgba(255, 0, 0, 0.3)';
-            });
-        });
-        
-        // Click animation
-        document.addEventListener('mousedown', function(e) {
-            // Ripple effect
-            const ripple = document.createElement('div');
-            ripple.style.width = '10px';
-            ripple.style.height = '10px';
-            ripple.style.border = '2px solid #FF0000';
-            ripple.style.borderRadius = '50%';
-            ripple.style.position = 'fixed';
-            ripple.style.left = (e.clientX - 5) + 'px';
-            ripple.style.top = (e.clientY - 5) + 'px';
-            ripple.style.pointerEvents = 'none';
-            ripple.style.zIndex = '99997';
-            ripple.style.transition = 'all 0.4s ease-out';
-            document.body.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.style.width = '80px';
-                ripple.style.height = '80px';
-                ripple.style.left = (e.clientX - 40) + 'px';
-                ripple.style.top = (e.clientY - 40) + 'px';
-                ripple.style.opacity = '0';
-                ripple.style.borderColor = '#FFFFFF';
-            }, 10);
-            
-            setTimeout(() => ripple.remove(), 500);
-            
-            // Dot pulse
-            dot.style.width = '16px';
-            dot.style.height = '16px';
-            dot.style.boxShadow = '0 0 20px #FFFFFF, 0 0 40px #FF0000';
-        });
-        
-        document.addEventListener('mouseup', function() {
-            dot.style.width = '8px';
-            dot.style.height = '8px';
-            dot.style.boxShadow = '0 0 10px #FFFFFF, 0 0 20px #FF0000';
-        });
-    })();
-</script>
+    <title>Welcome to My Tuff Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <meta name="description" content="Welcome to my personal homepage on the World Wide Web">
+    <meta name="keywords" content="homepage, personal, web, internet, links">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="audit-tracker.js"></script>
 </head>
-
 <body>
-	<div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center;">
-    <font face="Courier New" size="5" color="#FF0000">
-        <b>LOADING... PLEASE WAIT...</b>
-    </font>
-</div>
+    <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center;">
+        <font face="Courier New" size="5" color="#FF0000">
+            <b>LOADING... PLEASE WAIT...</b>
+        </font>
+    </div>
 
-<script>
-    window.addEventListener('load', function() {
-        setTimeout(() => {
-            document.getElementById('loader').style.display = 'none';
-        }, 1500);
-    });
-</script>
-	<center>
-		<table width="800" border="0" cellpadding="0" cellspacing="0" bgcolor="#660000">
-			<tr>
-				<td>
-					<table width="800" border="0" cellpadding="10" cellspacing="1" bgcolor="#FFFFFF">
-						<!-- Header -->
-						<tr>
-							<td bgcolor="#990000" align="center" colspan="3" style="background: linear-gradient(180deg, #CC0000, #660000); border: 3px outset #FF3333; padding: 15px;"> <font face="Times New Roman" size="7" color="#FFCC00">
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').style.display = 'none';
+            }, 1500);
+        });
+    </script>
+
+    <center>
+        <table width="800" border="0" cellpadding="0" cellspacing="0" bgcolor="#660000">
+            <tr>
+                <td>
+                    <table width="800" border="0" cellpadding="10" cellspacing="1" bgcolor="#FFFFFF">
+                        <!-- Header -->
+                        <tr>
+                            <td bgcolor="#990000" align="center" colspan="3" style="background: linear-gradient(180deg, #CC0000, #660000); border: 3px outset #FF3333; padding: 15px;">
+                                <font face="Times New Roman" size="7" color="#FFCC00">
                                     <b>Welcome to My Tuff Page</b>
-                                </font> </td>
-						</tr>
-						<!-- Marquee -->
-						<tr>
-							<td bgcolor="#CC0000" align="center" colspan="3" style="background: linear-gradient(180deg, #FF3333, #990000); border: 2px inset #FF6666;">
-<marquee behavior="scroll" direction="left" scrollamount="4">
-    <font face="Comic Sans MS" size="3" color="#FFFFFF">
-        <b>*** I love AI! <blink>and I vibecoded this whole website!!!!!!</blink> ***</b>
-    </font>
-</marquee>
-							</td>
-						</tr>
-						<!-- Navigation Bar -->
-						<tr>
-							<td bgcolor="#CC0000" align="center" colspan="3" style="background: linear-gradient(180deg, #FF4444, #AA0000); border: 2px outset #FF6666;"> <font face="Arial" size="2">
+                                </font>
+                            </td>
+                        </tr>
+                        
+                        <!-- Marquee -->
+                        <tr>
+                            <td bgcolor="#CC0000" align="center" colspan="3" style="background: linear-gradient(180deg, #FF3333, #990000); border: 2px inset #FF6666;">
+                                <marquee behavior="scroll" direction="left" scrollamount="4">
+                                    <font face="Comic Sans MS" size="3" color="#FFFFFF">
+                                        <b>*** I love AI! <blink>and I vibecoded this whole website!!!!!!</blink> ***</b>
+                                    </font>
+                                </marquee>
+                            </td>
+                        </tr>
+                        
+                        <!-- Navigation Bar -->
+                        <tr>
+                            <td bgcolor="#CC0000" align="center" colspan="3" style="background: linear-gradient(180deg, #FF4444, #AA0000); border: 2px outset #FF6666;">
+                                <font face="Arial" size="2">
                                     <b>
                                         [ <a href="index.html" style="color: #FFFFFF;">Home</a> ] 
                                         [ <a href="about.html" style="color: #FFFFFF;">About Me</a> ] 
-                                        [ <a href="links.html" style="color: #FFFFFF;">My Links</a> ] 
-                                        [ <a href="under-construction.html" style="color: #FFFFFF;">Email Me</a> ]
+                                        [ <a href="links.html" style="color: #FFFFFF;">Proxies</a> ] 
+                                        [ <a href="https://discord.gg/Dt8A48za9v" target="_blank" rel="noopener" style="color: #FFFFFF;">Discord Server</a> ]
                                     </b>
-                                </font> </td>
-						</tr>
-						<!-- Main Content Area -->
-						<tr>
-							<!-- Left Sidebar -->
-							<td width="200" bgcolor="#FFCCCC" valign="top" style="background: linear-gradient(180deg, #FFE5E5, #FFAAAA); border: 3px outset #FF6666;"> <font face="Arial" size="2" color="#660000">
+                                </font>
+                            </td>
+                        </tr>
+                        
+                        <!-- Main Content Area -->
+                        <tr>
+                            <!-- Left Sidebar -->
+                            <td width="200" bgcolor="#FFCCCC" valign="top" style="background: linear-gradient(180deg, #FFE5E5, #FFAAAA); border: 3px outset #FF6666;">
+                                <font face="Arial" size="2" color="#660000">
                                     <b>Navigation</b>
                                 </font>
-								<hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;"> <font face="Arial" size="2">
+                                <hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;">
+                                <font face="Arial" size="2">
                                     <a href="about.html" style="color: #990000;">About Me</a><br>
                                     <a href="links.html" style="color: #990000;">Proxies</a><br>
                                     <a href="under-construction.html" style="color: #990000;">Pictures</a><br>
                                     <a href="https://discord.gg/Dt8A48za9v" target="_blank" rel="noopener" style="color: #990000;">Discord Server</a><br>
                                 </font>
-								<br> <font face="Arial" size="2" color="#660000">
+                                <br>
+                                <font face="Arial" size="2" color="#660000">
                                     <b>Web Rings</b>
                                 </font>
-								<hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;"> <font face="Arial" size="1" color="#990000">
+                                <hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;">
+                                <font face="Arial" size="1" color="#990000">
                                     [ Prev | Random | Next ]<br>
                                     <a href="#" style="color: #990000;">Join My Web Ring</a>
-                                </font> </td>
-							<!-- Center Content -->
-							<td width="400" bgcolor="#FFFFFF" valign="top" style="background: linear-gradient(180deg, #FFFFFF, #FFE5E5); border: 2px inset #FF9999;"> <font face="Arial" size="2" color="#000000">
-        <h2 style="font-family: 'Times New Roman', serif; color: #990000; border-bottom: 3px solid #CC0000; padding-bottom: 5px; background: linear-gradient(90deg, #FFCCCC, #FFFFFF); padding: 8px; border: 2px outset #FF6666;">About This Site</h2>
-        
-        <p>
-            Hello and welcome to my personal homepage on the World Wide Web! 
-            I created this site to share my interests, thoughts, and favorite 
-            things with the world.
-        </p>
-        
-        <p>
-            This site is under construction, so please check back often 
-            for updates and new content!
-        </p>
-        
-        <center>
-            <img src="https://imgs.search.brave.com/0p3V3Vsm0SwaVzjjxUKwO07Z1GztLaLaB2jkiocL_IU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YW5pbWFuaWFjb3Mu/Y29tL2ltYWdlcy9n/aWZzL3dlYi9vYnJh/cy9vYnJhMDA0My5n/aWY.gif" border="0" alt="Under Construction">
-        </center>
-        
-        <p>
-            Feel free to join my discord!
-        </p>
-    </font> </td>
-							<!-- Right Sidebar -->
-							<td width="200" bgcolor="#FFCCCC" valign="top" style="background: linear-gradient(180deg, #FFE5E5, #FFAAAA); border: 3px outset #FF6666;"> <font face="Arial" size="2" color="#660000">
+                                </font>
+                            </td>
+                            
+                            <!-- Center Content -->
+                            <td width="400" bgcolor="#FFFFFF" valign="top" style="background: linear-gradient(180deg, #FFFFFF, #FFE5E5); border: 2px inset #FF9999;">
+                                <font face="Arial" size="2" color="#000000">
+                                    <h2 style="font-family: 'Times New Roman', serif; color: #990000; border-bottom: 3px solid #CC0000; padding-bottom: 5px; background: linear-gradient(90deg, #FFCCCC, #FFFFFF); padding: 8px; border: 2px outset #FF6666;">About This Site</h2>
+                                    
+                                    <p>
+                                        Hello and welcome to my personal homepage on the World Wide Web! 
+                                        I created this site to share my interests, thoughts, and favorite 
+                                        things with the world.
+                                    </p>
+                                    
+                                    <p>
+                                        This site is under construction, so please check back often 
+                                        for updates and new content!
+                                    </p>
+                                    
+                                    <center>
+                                        <img src="https://imgs.search.brave.com/0p3V3Vsm0SwaVzjjxUKwO07Z1GztLaLaB2jkiocL_IU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/YW5pbWFuaWFjb3Mu/Y29tL2ltYWdlcy9n/aWZzL3dlYi9vYnJh/cy9vYnJhMDA0My5n/aWY.gif" border="0" alt="Under Construction">
+                                    </center>
+                                    
+                                    <p>
+                                        Feel free to join my discord!
+                                    </p>
+                                </font>
+                            </td>
+                            
+                            <!-- Right Sidebar -->
+                            <td width="200" bgcolor="#FFCCCC" valign="top" style="background: linear-gradient(180deg, #FFE5E5, #FFAAAA); border: 3px outset #FF6666;">
+                                <font face="Arial" size="2" color="#660000">
                                     <b>Site Info</b>
                                 </font>
-								<hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;"> <font face="Arial" size="2" color="#660000">
+                                <hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;">
+                                <font face="Arial" size="2" color="#660000">
                                     <b>Visitors:</b><br>
                                     <span style="display:inline-block; background-color:#000000; padding:3px 5px; border:2px inset #FF6666;">
-<!-- hitwebcounter Code START -->
-<a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener" title="Free Stats Visits">
-<img src="https://www.hitwebcounter.com/counter/counter.php?page=21516386&amp;style=0001&amp;nbdigits=5&amp;type=ip" alt="Free Stats Visits" decoding="async" style="border:0;max-width:100%;height:auto;" />
-</a>
-<!-- hitwebcounter Code END -->
+                                        <!-- hitwebcounter Code START -->
+                                        <a href="https://www.hitwebcounter.com/" target="_blank" rel="noopener" title="Free Stats Visits">
+                                        <img src="https://www.hitwebcounter.com/counter/counter.php?page=21516386&amp;style=0001&amp;nbdigits=5&amp;type=ip" alt="Free Stats Visits" decoding="async" style="border:0;max-width:100%;height:auto;" />
+                                        </a>
+                                        <!-- hitwebcounter Code END -->
                                     </span>
                                     <br>
                                     <b>Since:</b><br>
                                     August 2026
                                 </font>
-								<br>
-								<br> <font face="Arial" size="2" color="#660000">
+                                <br><br>
+                                <font face="Arial" size="2" color="#660000">
                                     <b>Updates</b>
                                 </font>
-								<hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;"> <font face="Arial" size="1" color="#660000">
-    <div id="update-log" style="text-align: left;">
-        Loading updates...
-    </div>
-</font>
-								<script>
-								fetch('https://raw.githubusercontent.com/EquinoXV2/mywebpage/refs/heads/main/info/updates.json').then(response => response.json()).then(data => {
-									let html = '';
-									// Sort dates in reverse order (newest first)
-									const dates = Object.keys(data).sort().reverse();
-									for(const date of dates) {
-										const entries = data[date];
-										const id = 'log-' + date.replace(/\//g, '-');
-										html += '<details style="margin-bottom: 5px;">';
-										html += '<summary style="cursor: pointer; font-weight: bold; color: #990000; background: linear-gradient(180deg, #FFCCCC, #FFAAAA); padding: 3px 5px; border: 1px outset #FF6666;">' + date + '</summary>';
-										for(const entry of entries) {
-											html += '<div style="padding: 2px 5px 2px 15px;">- ' + entry + '</div>';
-										}
-										html += '</details>';
-									}
-									document.getElementById('update-log').innerHTML = html;
-								}).catch(() => {
-									document.getElementById('update-log').innerHTML = '<b>08/25/26:</b> Updates unavailable<br>';
-								});
-								</script>
-								<br>
-								<br> <font face="Arial" size="2" color="#660000">
+                                <hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;">
+                                <font face="Arial" size="1" color="#660000">
+                                    <div id="update-log" style="text-align: left;">
+                                        Loading updates...
+                                    </div>
+                                </font>
+                                <script>
+                                    fetch('https://raw.githubusercontent.com/EquinoXV2/mywebpage/refs/heads/main/info/updates.json')
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            let html = '';
+                                            const dates = Object.keys(data).sort().reverse();
+                                            for (const date of dates) {
+                                                const entries = data[date];
+                                                html += '<details style="margin-bottom: 5px;">';
+                                                html += '<summary style="cursor: pointer; font-weight: bold; color: #990000; background: linear-gradient(180deg, #FFCCCC, #FFAAAA); padding: 3px 5px; border: 1px outset #FF6666;">' + date + '</summary>';
+                                                for (const entry of entries) {
+                                                    html += '<div style="padding: 2px 5px 2px 15px;">- ' + entry + '</div>';
+                                                }
+                                                html += '</details>';
+                                            }
+                                            document.getElementById('update-log').innerHTML = html;
+                                        })
+                                        .catch(() => {
+                                            document.getElementById('update-log').innerHTML = '<b>08/25/26:</b> Updates unavailable<br>';
+                                        });
+                                </script>
+                                <br><br>
+                                <font face="Arial" size="2" color="#660000">
                                     <b>Web Awards</b>
                                 </font>
-								<hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;"> <font face="Arial" size="1">
+                                <hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;">
+                                <font face="Arial" size="1">
                                     <img src="info/icon.png" width="100" border="2" style="border-color: #FF6666;" alt="Icon"><br>
-                                </font> </td>
-						</tr>
-						<!-- Footer -->
-						<tr>
-							<td bgcolor="#990000" align="center" colspan="3" style="background: linear-gradient(180deg, #CC0000, #660000); border: 3px outset #FF3333;"> <font face="Arial" size="1" color="#FFFFFF">
+                                </font>
+                            </td>
+                        </tr>
+                        
+                        <!-- Footer -->
+                        <tr>
+                            <td bgcolor="#990000" align="center" colspan="3" style="background: linear-gradient(180deg, #CC0000, #660000); border: 3px outset #FF3333;">
+                                <font face="Arial" size="1" color="#FFFFFF">
                                     This page is best viewed at 800x600 resolution using Netscape Navigator or Internet Explorer<br>
                                     <span id="current-date"></span><br>
                                     &copy; 2026 My Website. All rights reserved.
-                                </font> </td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-		<script>
-		// Set current date
-		const now = new Date();
-		const options = {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		};
-		document.getElementById('current-date').innerHTML = 'Last updated: ' + now.toLocaleDateString('en-US', options);
-		</script>
-</body>
+                                </font>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </center>
 
+    <script>
+        // Set current date
+        const now = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerHTML = 'Last updated: ' + now.toLocaleDateString('en-US', options);
+    </script>
+
+    <script>
+        (function() {
+            const dot = document.createElement('div');
+            const ring = document.createElement('div');
+            
+            dot.style.width = '8px';
+            dot.style.height = '8px';
+            dot.style.background = '#FFFFFF';
+            dot.style.borderRadius = '50%';
+            dot.style.position = 'fixed';
+            dot.style.top = '0';
+            dot.style.left = '0';
+            dot.style.pointerEvents = 'none';
+            dot.style.zIndex = '99999';
+            dot.style.boxShadow = '0 0 10px #FFFFFF, 0 0 20px #FF0000';
+            dot.style.transition = 'width 0.2s, height 0.2s';
+            
+            ring.style.width = '40px';
+            ring.style.height = '40px';
+            ring.style.border = '2px solid #FF0000';
+            ring.style.borderRadius = '50%';
+            ring.style.position = 'fixed';
+            ring.style.top = '0';
+            ring.style.left = '0';
+            ring.style.pointerEvents = 'none';
+            ring.style.zIndex = '99998';
+            ring.style.boxShadow = '0 0 15px #FF0000, 0 0 30px rgba(255, 0, 0, 0.3)';
+            ring.style.transition = 'width 0.3s, height 0.3s, border-color 0.3s';
+            
+            document.body.appendChild(dot);
+            document.body.appendChild(ring);
+            
+            document.body.style.cursor = 'none';
+            document.querySelectorAll('a, button, img, marquee, input, select, textarea').forEach(el => {
+                el.style.cursor = 'none';
+            });
+            
+            let mouseX = 0;
+            let mouseY = 0;
+            let ringX = 0;
+            let ringY = 0;
+            
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                dot.style.transform = 'translate(' + (mouseX - 4) + 'px, ' + (mouseY - 4) + 'px)';
+            });
+            
+            function animateRing() {
+                ringX += (mouseX - ringX) * 0.15;
+                ringY += (mouseY - ringY) * 0.15;
+                ring.style.transform = 'translate(' + (ringX - 20) + 'px, ' + (ringY - 20) + 'px)';
+                requestAnimationFrame(animateRing);
+            }
+            
+            animateRing();
+            
+            document.querySelectorAll('a, button, img, marquee').forEach(el => {
+                el.addEventListener('mouseenter', function() {
+                    dot.style.width = '12px';
+                    dot.style.height = '12px';
+                    ring.style.width = '60px';
+                    ring.style.height = '60px';
+                    ring.style.borderColor = '#FFFFFF';
+                    ring.style.boxShadow = '0 0 20px #FFFFFF, 0 0 40px rgba(255, 255, 255, 0.3)';
+                });
+                
+                el.addEventListener('mouseleave', function() {
+                    dot.style.width = '8px';
+                    dot.style.height = '8px';
+                    ring.style.width = '40px';
+                    ring.style.height = '40px';
+                    ring.style.borderColor = '#FF0000';
+                    ring.style.boxShadow = '0 0 15px #FF0000, 0 0 30px rgba(255, 0, 0, 0.3)';
+                });
+            });
+            
+            document.addEventListener('mousedown', function(e) {
+                const ripple = document.createElement('div');
+                ripple.style.width = '10px';
+                ripple.style.height = '10px';
+                ripple.style.border = '2px solid #FF0000';
+                ripple.style.borderRadius = '50%';
+                ripple.style.position = 'fixed';
+                ripple.style.left = (e.clientX - 5) + 'px';
+                ripple.style.top = (e.clientY - 5) + 'px';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.zIndex = '99997';
+                ripple.style.transition = 'all 0.4s ease-out';
+                document.body.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.style.width = '80px';
+                    ripple.style.height = '80px';
+                    ripple.style.left = (e.clientX - 40) + 'px';
+                    ripple.style.top = (e.clientY - 40) + 'px';
+                    ripple.style.opacity = '0';
+                    ripple.style.borderColor = '#FFFFFF';
+                }, 10);
+                
+                setTimeout(() => ripple.remove(), 500);
+                
+                dot.style.width = '16px';
+                dot.style.height = '16px';
+                dot.style.boxShadow = '0 0 20px #FFFFFF, 0 0 40px #FF0000';
+            });
+            
+            document.addEventListener('mouseup', function() {
+                dot.style.width = '8px';
+                dot.style.height = '8px';
+                dot.style.boxShadow = '0 0 10px #FFFFFF, 0 0 20px #FF0000';
+            });
+        })();
+    </script>
+</body>
 </html>
