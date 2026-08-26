@@ -9,6 +9,29 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="audit-tracker.js"></script>
+	<script>
+    // Cursor trail
+    document.addEventListener('mousemove', function(e) {
+        if (Math.random() > 0.85) {
+            const spark = document.createElement('div');
+            spark.textContent = '★';
+            spark.style.position = 'fixed';
+            spark.style.left = e.pageX + 'px';
+            spark.style.top = e.pageY + 'px';
+            spark.style.color = '#FF0000';
+            spark.style.pointerEvents = 'none';
+            spark.style.fontSize = Math.random() * 15 + 10 + 'px';
+            spark.style.zIndex = '9999';
+            document.body.appendChild(spark);
+            
+            setTimeout(() => {
+                spark.style.transition = 'opacity 0.8s';
+                spark.style.opacity = '0';
+                setTimeout(() => spark.remove(), 800);
+            }, 50);
+        }
+    });
+</script>
 </head>
 
 <body>
