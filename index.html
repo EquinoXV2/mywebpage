@@ -121,13 +121,41 @@
                                     <b>Updates</b>
                                 </font>
                                 <hr width="100%" style="color: #CC0000; background-color: #CC0000; height: 2px;">
-                                <font face="Arial" size="1" color="#660000">
-                                    <b>08/25/26:</b> Updated navigation labels<br>
-                                    <b>08/25/26:</b> Cleaned up index page<br>
-                                    <b>08/24/26:</b> Added counter and updated links<br>
-                                    <b>08/24/26:</b> Site launched!<br>
-                                    <b>08/23/26:</b> Started building site
-                                </font>
+<font face="Arial" size="1" color="#660000">
+    <div id="update-log" style="text-align: left;">
+        Loading updates...
+    </div>
+</font>
+
+<script>
+    fetch('https://raw.githubusercontent.com/EquinoXV2/mywebpage/refs/heads/main/info/updates.json')
+        .then(response => response.json())
+        .then(data => {
+            let html = '';
+            
+            // Sort dates in reverse order (newest first)
+            const dates = Object.keys(data).sort().reverse();
+            
+            for (const date of dates) {
+                const entries = data[date];
+                const id = 'log-' + date.replace(/\//g, '-');
+                
+                html += '<details style="margin-bottom: 5px;">';
+                html += '<summary style="cursor: pointer; font-weight: bold; color: #990000; background: linear-gradient(180deg, #FFCCCC, #FFAAAA); padding: 3px 5px; border: 1px outset #FF6666;">' + date + '</summary>';
+                
+                for (const entry of entries) {
+                    html += '<div style="padding: 2px 5px 2px 15px;">- ' + entry + '</div>';
+                }
+                
+                html += '</details>';
+            }
+            
+            document.getElementById('update-log').innerHTML = html;
+        })
+        .catch(() => {
+            document.getElementById('update-log').innerHTML = '<b>08/25/26:</b> Updates unavailable<br>';
+        });
+</script>
                                 <br><br>
                                 <font face="Arial" size="2" color="#660000">
                                     <b>Web Awards</b>
