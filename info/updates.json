@@ -1,6 +1,7 @@
 {
   "08/26/26": [
-    "12:00am"
+    "Added cursor effects and audit tracking",
+    "Moved background image to info folder"
   ],
   "08/25/26": [
     "Added mobile support",
