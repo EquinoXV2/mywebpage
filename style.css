@@ -2,7 +2,7 @@
 
 body {
     background-color: #000000;
-    background-image: url('info/perfect_hue_44.jpg');
+    background-image: url('/info/perfect_hue_44.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
