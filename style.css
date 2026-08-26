@@ -64,3 +64,47 @@ img[alt="Counter"] {
     padding: 2px;
     background-color: #000000;
 }
+/* Mobile support */
+@media screen and (max-width: 850px) {
+    table {
+        width: 100% !important;
+    }
+    
+    td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    /* Sidebars stack above and below content */
+    td[width="200"] {
+        display: block;
+        width: 100% !important;
+    }
+    
+    td[width="400"] {
+        display: block;
+        width: 100% !important;
+    }
+    
+    /* Center everything */
+    center {
+        margin: 0;
+        padding: 0;
+    }
+    
+    body {
+        margin: 5px;
+    }
+    
+    /* Smaller header text */
+    font[size="7"] {
+        font-size: 24px !important;
+    }
+    
+    /* Images scale down */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
